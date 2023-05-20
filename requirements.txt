@@ -1,0 +1,4 @@
+requests
+pwinput
+redchar
+garminconnect
