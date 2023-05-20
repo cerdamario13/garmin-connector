@@ -174,10 +174,10 @@ def print_menu():
 def switch(api, i):
     """Run selected API call."""
 
-    # Exit example program
-    if i == "q":
-        print("Bye!")
-        sys.exit()
+    # # Exit example program
+    # if i == "q":
+    #     print("Bye!")
+    #     sys.exit()
 
     # Skip requests if login failed
     if api:
@@ -187,15 +187,17 @@ def switch(api, i):
             # USER BASICS
             if i == "1":
                 # Get full name from profile
-                display_json("api.get_full_name()", api.get_full_name())
+                return (api.get_full_name())
             elif i == "2":
                 # Get unit system from profile
-                display_json("api.get_unit_system()", api.get_unit_system())
+                return api.get_unit_system()
+
 
             # USER STATISTIC SUMMARIES
             elif i == "3":
                 # Get activity data for 'YYYY-MM-DD'
-                display_json(f"api.get_stats('{today.isoformat()}')", api.get_stats(today.isoformat()))
+                # display_json(f"api.get_stats('{today.isoformat()}')", api.get_stats(today.isoformat()))
+                return api.get_stats(today.isoformat())
             elif i == "4":
                 # Get activity data (to be compatible with garminconnect-ha)
                 display_json(f"api.get_user_summary('{today.isoformat()}')", api.get_user_summary(today.isoformat()))
@@ -457,6 +459,7 @@ def switch(api, i):
             pass
     else:
         print("Could not login to Garmin Connect, try again later.")
+
 
 # # Main program loop
 # while True:
