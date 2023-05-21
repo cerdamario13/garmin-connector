@@ -8,7 +8,7 @@ import requests
 import pwinput
 import readchar
 
-from cyberjunky_code import *
+from cyberjunky_code_modified import *
 
 
 # Load environment variables if defined
@@ -28,7 +28,10 @@ activityfile = "MY_ACTIVITY.fit" # Supported file types are: .fit .gpx .tcx
 # API Login
 api = init_api(email, password)
 
+# Read data
+data = switch(api, "r")
 
+print(data)
 
 
 print("")
