@@ -1,0 +1,14 @@
+read:
+  - file:
+      name: ${data_path}
+      
+wrangles:
+
+  - rename:
+      Activity Type: Activity_Type
+      
+  - sql:
+      command: |
+        SELECT *
+        FROM df
+        WHERE Activity_Type LIKE '%Running%'
