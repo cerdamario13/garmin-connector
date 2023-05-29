@@ -9,3 +9,25 @@ wrangles:
       
   - sql:
       command: ${query}
+
+write:
+  - dataframe:
+  # columns not needed for running
+      not_columns:
+        - Avg Vertical Ratio
+        - Avg Vertical Oscillation
+        - Avg Ground Contact Time
+        - Training Stress Score®
+        - Avg Power
+        - Max Power
+        - Grit
+        - Flow
+        - Total Strokes
+        - Avg. Swolf
+        - Avg Stroke Rate
+        - Total Reps
+        - Total Sets
+        - Dive Time
+        - Min Temp
+        - Surface Interval
+        - Decompression
