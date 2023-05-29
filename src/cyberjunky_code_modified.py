@@ -194,7 +194,7 @@ def switch(api, i):
 
 
             # USER STATISTIC SUMMARIES
-            elif i == "3":
+            elif i == "get_activity":
                 # Get activity data for 'YYYY-MM-DD'
                 # display_json(f"api.get_stats('{today.isoformat()}')", api.get_stats(today.isoformat()))
                 return api.get_stats(today.isoformat())
