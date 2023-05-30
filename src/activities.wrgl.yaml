@@ -9,16 +9,6 @@ wrangles:
   - sql:
       command: ${query}
 
-  # Removing milliseconds from time
-  - extract.regex:
-      input: Time
-      output: TimeNew
-      find: \d+:\d+:\d+
-
-  - select.list_element:
-      input: TimeNew
-      element: 0
-
 write:
   - dataframe:
   # columns not needed for running
