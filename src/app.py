@@ -1,13 +1,15 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import activities
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=['GET'])
 def hello_world():
     return "Hello World!"
 
-@app.route('/allRuns', methods=['POST'])
+@app.route('/allRuns', methods=['GET'])
 def get_all_runs():
     """
     Get the data for all runs
@@ -16,7 +18,7 @@ def get_all_runs():
 
     return jsonify(results)
 
-@app.route('/runSummaries', methods=['POST'])
+@app.route('/runSummaries', methods=['GET'])
 def get_run_summaries():
     """
     Get summaries for all runs
