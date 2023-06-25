@@ -3,6 +3,15 @@ import pandas as pd
 import json
 import datetime
 
+def delete_col(df):
+    """
+    Delete the input columns
+    """
+    
+    df.drop(["Training Stress Score®"], axis=1)
+    
+    return df
+
 def all_runs():
     """
     Return all runs from the data file
@@ -24,7 +33,7 @@ def all_runs():
         "query": query,
     }
 
-    df = wrangles.recipe.run(recipe=recipe_file, variables=vars)
+    df = wrangles.recipe.run(recipe=recipe_file, variables=vars, functions=[delete_col])
     df = df.to_json(orient="table")
 
     return json.loads(df)
@@ -52,7 +61,7 @@ def all_runs_summaries():
         "query": query
     }
 
-    df = wrangles.recipe.run(recipe=recipe_file, variables=vars)
+    df = wrangles.recipe.run(recipe=recipe_file, variables=vars, functions=[delete_col])
 
     # Overall Sums
     total_distance = df['Distance'].astype('float').sum()

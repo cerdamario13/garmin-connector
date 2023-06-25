@@ -3,6 +3,8 @@ read:
       name: ${data_path}
       
 wrangles:
+  - custom.delete_col: {}
+      
   - rename:
       Activity Type: Activity_Type
   
@@ -16,7 +18,7 @@ write:
         - Avg Vertical Ratio
         - Avg Vertical Oscillation
         - Avg Ground Contact Time
-        - Training Stress Score®
+        # - Training Stress Score®
         - Avg Power
         - Max Power
         - Grit
