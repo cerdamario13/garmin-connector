@@ -64,8 +64,8 @@ def all_runs_summaries(keyword):
     df = wrangles.recipe.run(recipe=recipe_file, variables=vars, functions=[delete_col])
 
     # Overall Sums
-    total_distance = df['Distance'].astype('float').sum()
-    total_calories = df['Calories'].astype('float').sum()
+    total_distance = df['Distance'].astype('float').sum().round(2)
+    total_calories = df['Calories'].astype('float').sum().round(2)
     total_time = {
         'days': pd.to_timedelta(df['Time']).sum().components.days,
         'hours': pd.to_timedelta(df['Time']).sum().components.hours,
