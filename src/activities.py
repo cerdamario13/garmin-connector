@@ -39,7 +39,7 @@ def all_runs():
     return json.loads(df)
     
 
-def all_runs_summaries():
+def all_runs_summaries(keyword):
     """
     Return a summary of activities
     """
@@ -50,10 +50,10 @@ def all_runs_summaries():
     recipe_file = "src/activities.wrgl.yaml"
 
 
-    query = """
+    query = f"""
     SELECt *
     FROM df
-    WHERE Activity_Type LIKE '%run%'
+    WHERE Activity_Type LIKE '%{keyword}%'
     """
 
     vars = {
