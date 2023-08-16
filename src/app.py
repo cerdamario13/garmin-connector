@@ -30,8 +30,12 @@ def get_run_summaries():
     average_calories_per_activity
     average_heart_rate_per_activity
     """
-
-    results = activities.all_runs_summaries()
+    
+    results = {}
+    results['runs'] = activities.all_runs_summaries('run')
+    results["bike_rides"] = activities.all_runs_summaries('cyc')
+    results["swims"] = activities.all_runs_summaries('swim')
+    
     return jsonify(results)
 
 if __name__ == '__main__':
