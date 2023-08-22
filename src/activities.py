@@ -37,6 +37,33 @@ def all_runs():
     df = df.to_json(orient="table")
 
     return json.loads(df)
+
+def all_bike_rides():
+    """
+    Return all of the bike rides
+    """
+    
+    # Inputs for bike activities
+    data_file = "Garmin_Data.csv"
+    data_path = f"data/{data_file}"
+    recipe_file = "src/activities.wrgl.yaml"
+    
+    # Select Activities type that have the keyword (cycle)
+    query = """
+    SELECT *
+    FROM df
+    WHERE Activity_Type LIKE '%cyc%'
+    """
+    
+    vars = {
+        "data_path": data_path,
+        "query": query
+    }
+    
+    df = wrangles.recipe.run(recipe=recipe_file, variables=vars, functions=[delete_col])
+    df = df.to_json(orient="table")
+    
+    return json.loads(df)
     
 
 def all_runs_summaries(keyword):
