@@ -18,6 +18,14 @@ def get_all_runs():
 
     return jsonify(results)
 
+@app.route('/allRides', methods=['GET'])
+def get_all_rides():
+    """
+    Get the data for all bike rides
+    """
+    results = activities.all_bike_rides()
+    return jsonify(results)
+
 @app.route('/runSummaries', methods=['GET'])
 def get_run_summaries():
     """
