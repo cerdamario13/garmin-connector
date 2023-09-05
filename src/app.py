@@ -26,6 +26,14 @@ def get_all_rides():
     results = activities.all_bike_rides()
     return jsonify(results)
 
+@app.route('/allSwims', methods=['GET'])
+def get_all_swims():
+    """
+    Get the data for all swims
+    """
+    results = activities.all_swims()
+    return jsonify(results)
+
 @app.route('/runSummaries', methods=['GET'])
 def get_run_summaries():
     """
