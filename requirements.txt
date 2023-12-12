@@ -1,5 +1,4 @@
 requests
-pwinput
-redchar
-garminconnect
 wrangles
+google-auth
+google-api-python-client
