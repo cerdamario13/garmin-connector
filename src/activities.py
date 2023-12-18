@@ -46,7 +46,18 @@ def read_blood_pressure():
               name: data/Blood_Pressure_Data.csv
         """
     )
-    df = df.to_json(orient="table")
+    df = df.to_dict(orient="records")
+    # Data in format:
+    # [
+    #     {
+    #         "Date": "2021-01-01",
+    #         "Systolic": 120,
+    #         "Diastolic": 80,
+    #         "Pulse": 80,
+    #          ....
+    #     },
+    #     ...  
+    # ]
     return df
 
 def delete_col(df):
