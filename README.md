@@ -8,3 +8,5 @@ Log in to [Garmin Connect](https://connect.garmin.com/) and download your data. 
 Upload the data into the **data** folder. The data will be formatted using [Wrangle Recipes](https://wrangles.io/en/python/recipes).
 
 Run the flask development server to start using. This project works in conjunction with [Garmin Dashboard](https://github.com/cerdamario13/Garmin-dashboard) React project.
+
+*Note: This is one of my first Flask projects*
