@@ -2,63 +2,6 @@ import wrangles
 import pandas as pd
 import json
 
-import os
-from google_drive_connector import read
-
-projectID = os.getenv("GOOGLe_PROJECT_ID", "...")
-privateKeyID = os.getenv("GOOGLE_PRIVATE_KEY_ID", "...")
-privateKey = os.getenv("GOOGLE_PRIVATE_KEY", "...")
-clientEmail = os.getenv("GOOGLE_CLIENT_EMAIL", "...")
-clientID = os.getenv("GOOGLE_CLIENT_ID", "...")
-
-read_file_id = os.getenv("GOOGLE_FILE_ID", "...")
-
-def write_google_sheet_to_local():
-    """
-    Read data from Google Sheet and write to local file
-    """
-    df_data = read(
-        file=read_file_id,
-        project_id=projectID,
-        private_key_id=privateKeyID,
-        private_key=privateKey,
-        client_email=clientEmail,
-        client_id=clientID
-        )
-    
-    wrangles.recipe.run(
-        recipe="""
-        write:
-          - file:
-              name: data/Blood_Pressure_Data.csv
-        """,
-        dataframe=df_data
-    )
-    
-def read_blood_pressure():
-    """
-    Get blood pressure data from local file
-    """
-    df = wrangles.recipe.run(
-        recipe="""
-        read:
-          - file:
-              name: data/Blood_Pressure_Data.csv
-        """
-    )
-    df = df.to_dict(orient="records")
-    # Data in format:
-    # [
-    #     {
-    #         "Date": "2021-01-01",
-    #         "Systolic": 120,
-    #         "Diastolic": 80,
-    #         "Pulse": 80,
-    #          ....
-    #     },
-    #     ...  
-    # ]
-    return df
 
 def delete_col(df):
     """

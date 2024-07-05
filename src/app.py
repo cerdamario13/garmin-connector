@@ -54,15 +54,8 @@ def get_run_summaries():
     
     return jsonify(results)
 
-@app.route('/bloodPressure', methods=['GET'])
-def get_blood_pressure():
-    """
-    Get blood pressure data
-    """
-    results = activities.read_blood_pressure()
-    return jsonify(results)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(ssl_context=('.vscode/cert.pem', '.vscode/key.pem'), debug=False, port=8000, host='0.0.0.0')
 
 
