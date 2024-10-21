@@ -3,7 +3,7 @@ from flask_cors import CORS
 import activities
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:8000"])
 
 @app.route("/", methods=['GET'])
 def hello_world():
@@ -56,6 +56,6 @@ def get_run_summaries():
 
 
 if __name__ == '__main__':
-    app.run(ssl_context=('.vscode/cert.pem', '.vscode/key.pem'), debug=False, port=8000, host='0.0.0.0')
+    app.run(debug=False, port=8000)
 
 
