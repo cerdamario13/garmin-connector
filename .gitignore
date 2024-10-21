@@ -10,6 +10,7 @@ __pycache__/
 session.json
 /data
 .vscode
+.DS_Store
 
 # Distribution / packaging
 .Python
